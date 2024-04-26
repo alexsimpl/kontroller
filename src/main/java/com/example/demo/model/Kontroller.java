@@ -22,14 +22,14 @@ public class Kontroller {
 
     // @Column(name = "messages", columnDefinition = "jsonb")
     @Column(name = "messages")
-    private List<String> messages;
+    private List<Messages> messages;
 
 
     public Kontroller() {
 
     }
 
-    public Kontroller(String type, String sn, List<String> messages) {
+    public Kontroller(String type, String sn, List<Messages> messages) {
         super();
         this.type = type;
         this.sn = sn;
@@ -60,11 +60,11 @@ public class Kontroller {
         this.sn = sn;
     }
 
-    public List<String> getMessages() {
+    public List<Messages> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<String> messages) {
+    public void setMessages(List<Messages> messages) {
         this.messages = messages;
     }
    

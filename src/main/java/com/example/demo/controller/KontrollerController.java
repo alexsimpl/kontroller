@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Kontroller;
+import com.example.demo.Entity.Kontroller;
 import com.example.demo.repository.KontrollerRepository;
 
 // @CrossOrigin(origins = "http://localhost:4200")
@@ -34,8 +34,8 @@ public class KontrollerController {
     @PostMapping("/kontrollers")
 	public Kontroller createKontroller(@RequestBody Kontroller kontroller) {
 
-		return kontrollerRepository.save(kontroller);
-        // return kontroller;
+		// return kontrollerRepository.save(kontroller);
+        return kontroller;
 	}
 
    

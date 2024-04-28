@@ -1,3 +1,4 @@
+package com.example.demo.Varible;
 // package com.example.demo.Entity;
 
 // public class SetActive {

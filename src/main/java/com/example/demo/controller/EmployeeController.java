@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Entity.Employee;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.Employee;
 import com.example.demo.repository.EmployeeRepository;
 
 // @CrossOrigin(origins = "http://localhost:4200")

@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.Entity.Kontroller;
 import com.example.demo.repository.KontrollerRepository;
+import com.example.demo.service.KontrollerService;
 
 // @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -22,20 +24,20 @@ import com.example.demo.repository.KontrollerRepository;
 public class KontrollerController {
 
     @Autowired
-    private KontrollerRepository kontrollerRepository;
+    private KontrollerService kontrollerService;
 
     // get all kontrollers
     @GetMapping("/kontrollers")
-    public List<Kontroller> getAllKontrollers() {
-        return kontrollerRepository.findAll();
+    public List<KontrollerDto> getAllKontrollers() {
+        return kontrollerService.getAllKontrollers();
     }
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")
-	public Kontroller createKontroller(@RequestBody Kontroller kontroller) {
-
+	public KontrollerDto createKontroller(@RequestBody KontrollerDto kontrollerDto) {
+        kontrollerService.methodService(kontrollerDto);
 		// return kontrollerRepository.save(kontroller);
-        return kontroller;
+        return kontrollerDto;
 	}
 
    

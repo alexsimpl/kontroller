@@ -2,7 +2,7 @@ package com.example.demo.Entity;
 
 import java.util.List;
 
-import com.example.demo.DTO.MessagesDto;
+import com.example.demo.DTO.EventsDto;
 
 // import com.fasterxml.jackson.databind.JsonNode;
 
@@ -24,7 +24,10 @@ public class Messages {
     private String operation;
 
     @Column(name = "fw")
-    private String fW;
+    private String fw;
+
+    @Column(name = "active")
+    private String active;
 
     @Column(name = "mode")
     private String mode;
@@ -34,5 +37,7 @@ public class Messages {
 
     @Column(name = "readerProtocol")
     private String readerProtocol;
-    
+
+    @Column(name = "events")
+    private List<EventsDto> events;
 }

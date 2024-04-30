@@ -2,8 +2,6 @@ package com.example.demo.Entity;
 
 import java.util.List;
 
-import com.example.demo.DTO.MessagesDto;
-
 // import com.fasterxml.jackson.databind.JsonNode;
 
 import jakarta.persistence.*;
@@ -14,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "kontroller")
-public class Kontroller {
+public class KontrollerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +22,10 @@ public class Kontroller {
     private String type;
 
     @Column(name = "sn")
+    @OneToMany(cascade = CascadeType.ALL)
     private String sn;
 
     @Column(name = "messages")
-    private List<MessagesDto> messages;
+    private List<MessagesEntity> messages;
 
 }

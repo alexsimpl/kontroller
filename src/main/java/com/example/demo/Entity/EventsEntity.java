@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "events")
-public class Events {
+public class EventsEntity {
     @Column(name = "flag")
     private String flag;
 

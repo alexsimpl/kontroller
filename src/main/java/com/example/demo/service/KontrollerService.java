@@ -4,37 +4,42 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.DTO.MessagesDto;
-import com.example.demo.Entity.Employee;
-import com.example.demo.Entity.Kontroller;
-import com.example.demo.Entity.Messages;
+import com.example.demo.Entity.EmployeeEntity;
+import com.example.demo.Entity.KontrollerEntity;
+import com.example.demo.Entity.MessagesEntity;
 import com.example.demo.repository.KontrollerRepository;
 import com.example.demo.repository.MessagesRepository;
 
+
+@Service
 public class KontrollerService {
 
      @Autowired
     private KontrollerRepository kontrollerRepository;
-    // private MessagesRepository messagesRepository;
+    // private MessagesRepository messagesRepository;    
     
-    public List<MessagesDto> methodService(KontrollerDto kontrollerDto) {
-	    Kontroller kontroller = new Kontroller();
-	    kontroller.setType(kontrollerDto.getType());
-	    kontroller.setSn(kontrollerDto.getSn());
+    public KontrollerEntity createKontrollerService(KontrollerDto kontrollerDto) {
+	    // KontrollerDto kontrollerDto = new KontrollerDto();
+	    // kontrollerDto.setType(kontrollerDto.getType());
+	    // kontrollerDto.setSn(kontrollerDto.getSn());
+        // List<MessagesDto> listClass = kontrollerDto.getMessages()
+        //     .map(this::getMessagesDto)
+        //     .collect(Collectors.toList());
+        //     kontrollerDto.setMessages(listClass);
 
+        KontrollerEntity kontrollerEntity = new KontrollerEntity();
+        kontrollerEntity = KontrollerMapper.toEntity(kontrollerDto);
+	    //Сохранение в БД
+        kontrollerRepository.save(kontrollerEntity);
+        return kontrollerEntity;
 
-        List<MessagesDto> listClass = kontrollerDto.getMessages()
-            .map(this::getMessagesDto)
-            .collect(Collectors.toList());
-
-            kontroller.setMessages(listClass);
-	//Сохранение в БД
-	kontrollerRepository.save(kontroller);
     }
 
-    public List<Kontroller> getAllKontrollers() {
+    public List<KontrollerEntity> getAllKontrollers() {
         return kontrollerRepository.findAll();
     }
 

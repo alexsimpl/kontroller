@@ -2,8 +2,6 @@ package com.example.demo.Entity;
 
 import java.util.List;
 
-import com.example.demo.DTO.EventsDto;
-
 // import com.fasterxml.jackson.databind.JsonNode;
 
 import jakarta.persistence.*;
@@ -14,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "messages")
-public class Messages {
+public class MessagesEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,5 +37,6 @@ public class Messages {
     private String readerProtocol;
 
     @Column(name = "events")
-    private List<EventsDto> events;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<EventsEntity> events;
 }

@@ -29,14 +29,14 @@ public class KontrollerMapper {
 
     public static MessagesDto toDto(MessagesEntity messagesEntity) {
         MessagesDto messagesDto = new MessagesDto();
-        messagesDto.setId(messagesEntity.getId());
+        messagesDto.setId(messagesEntity.getIdMessages());
         messagesDto.setOperation(messagesEntity.getOperation());
         return messagesDto;
     }
 
     public static MessagesEntity toEntity(MessagesDto messagesDto) {
         MessagesEntity messagesEntity = new MessagesEntity();
-        messagesEntity.setId(messagesDto.getId());
+        messagesEntity.setIdMessages(messagesDto.getId());
         messagesEntity.setOperation(messagesDto.getOperation());
         return messagesEntity;
     }

@@ -38,17 +38,4 @@ public class KontrollerService {
         return kontrollerRepository.findAll();
     }
 
-    // private Messages getMessagesDto (MessagesDto messagesDto) {
-    //     Messages messages = new Messages();
-    //     messages.setId(messagesDto.getId());
-    //     messages.setOperation(messagesDto.getOperation());
-    //     messages.setFw(messagesDto.getFw());
-    //     messages.setActive(messagesDto.getActive());
-    //     messages.setMode(messagesDto.getMode());
-    //     messages.setControllerIp(messagesDto.getControllerIp());
-    //     messages.setReaderProtocol(messagesDto.getReaderProtocol());
-
-    //     return messages;
-    // }
-
 }

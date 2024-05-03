@@ -18,9 +18,12 @@ public class MessagesEntity {
     @JoinColumn(name = "kontroller_id")
     private KontrollerEntity kontroller;
 
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "idMessages")
+    private long idMessages;
 
     @Column(name = "operation")
     private String operation;

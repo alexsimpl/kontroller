@@ -18,8 +18,8 @@ public class MessagesEntity {
     @JoinColumn(name = "kontroller_id")
     private KontrollerEntity kontroller;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "operation")
@@ -29,10 +29,10 @@ public class MessagesEntity {
     private String fw;
 
     @Column(name = "active")
-    private String active;
+    private int active;
 
     @Column(name = "mode")
-    private String mode;
+    private int mode;
 
     @Column(name = "controllerIp")
     private String controllerIp;

@@ -24,8 +24,12 @@ public class KontrollerEntity {
     @Column(name = "sn")
     private String sn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller")
-    @Column(name = "messages")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "messagesKontroller")
+    @Column(name = "messagesKontroller_id")
     private List<MessagesEntity> messages;
+    
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventsKontroller")
+    // @Column(name = "eventsKontroller_id")
+    // private List<EventsEntity> events;
 
 }

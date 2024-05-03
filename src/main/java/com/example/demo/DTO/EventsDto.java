@@ -10,6 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class EventsDto {
+    private long id;
     private int flag;
     private int event;
     private String time;

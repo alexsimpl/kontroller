@@ -16,4 +16,5 @@ public class KontrollerDto {
     private String type;
     private String sn;
     private List<MessagesDto> messages;
+    private List<EventsDto> events;
 }

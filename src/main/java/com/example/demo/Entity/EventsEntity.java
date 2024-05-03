@@ -27,10 +27,10 @@ public class EventsEntity {
     private long id;
 
     @Column(name = "flag")
-    private String flag;
+    private int flag;
 
     @Column(name = "event")
-    private String event;
+    private int event;
 
     @Column(name = "time")
     private String time;

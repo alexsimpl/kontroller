@@ -2,8 +2,10 @@ package com.example.demo.service;
 
 import java.util.stream.Collectors;
 
+import com.example.demo.DTO.EventsDto;
 import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.DTO.MessagesDto;
+import com.example.demo.Entity.EventsEntity;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.Entity.MessagesEntity;
 
@@ -39,6 +41,22 @@ public class KontrollerMapper {
         messagesEntity.setIdMessages(messagesDto.getId());
         messagesEntity.setOperation(messagesDto.getOperation());
         return messagesEntity;
+    }
+
+    public static EventsDto toDto(EventsEntity eventsEntity) {
+        EventsDto eventsDto = new EventsDto();
+        eventsDto.setId(eventsEntity.getId());
+        eventsDto.setFlag(eventsEntity.getFlag());
+        eventsDto.setEvent(eventsEntity.getEvent());
+        return eventsDto;
+    }
+
+    public static EventsEntity toEntity(EventsDto eventsDto) {
+        EventsEntity eventsEntity = new EventsEntity();
+        eventsEntity.setId(eventsDto.getId());
+        eventsEntity.setFlag(eventsDto.getFlag());
+        eventsEntity.setEvent(eventsDto.getEvent());
+        return eventsEntity;
     }
 
 }

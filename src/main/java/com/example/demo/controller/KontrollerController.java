@@ -43,8 +43,9 @@ public class KontrollerController {
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")
-	public static KontrollerEntity createKontroller(@RequestBody KontrollerDto kontrollerDto) {
-        KontrollerEntity kontrollerEntity = kontrollerService.createKontrollerService(kontrollerDto);
+	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) {
+        kontrollerService.createKontrollerService(kontrollerDto);
+        // KontrollerEntity kontrollerEntity = kontrollerService.createKontrollerService(kontrollerDto);
 		// return kontrollerEntity;
         
         // return KontrollerMapper.toEntity(kontrollerDto);

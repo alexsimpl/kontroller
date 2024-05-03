@@ -22,9 +22,9 @@ public class KontrollerEntity {
     private String type;
 
     @Column(name = "sn")
-    @OneToMany(cascade = CascadeType.ALL)
     private String sn;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller")
     @Column(name = "messages")
     private List<MessagesEntity> messages;
 

@@ -17,7 +17,7 @@ public class KontrollerService {
     private KontrollerRepository kontrollerRepository;
     // private MessagesRepository messagesRepository;    
     
-    public KontrollerEntity createKontrollerService(KontrollerDto kontrollerDto) {
+    public void createKontrollerService(KontrollerDto kontrollerDto) {
 	    // KontrollerDto kontrollerDto = new KontrollerDto();
 	    // kontrollerDto.setType(kontrollerDto.getType());
 	    // kontrollerDto.setSn(kontrollerDto.getSn());
@@ -30,7 +30,7 @@ public class KontrollerService {
         kontrollerEntity = KontrollerMapper.toEntity(kontrollerDto);
 	    //Сохранение в БД
         kontrollerRepository.save(kontrollerEntity);
-        return kontrollerEntity;
+        // return kontrollerEntity;
 
     }
 

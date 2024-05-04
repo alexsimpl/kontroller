@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.KontrollerDto;
@@ -28,18 +29,19 @@ public class KontrollerController {
 
     // get all kontrollers
     @GetMapping("/kontrollers")
-    public List<KontrollerEntity> getAllKontrollers() {
-        return kontrollerService.getAllKontrollers();
+    // public void getAllKontrollers() {
+    //     kontrollerService.getAllKontrollerService();
+    // }
+
+    public ResponseEntity<?> getAllKontrollers() {
+        return ResponseEntity.ok(kontrollerService.getAllKontrollerService());
     }
 
-    // create kontrollers by id rest api
-    // @PostMapping("/kontrollers")
-	// public KontrollerDto createKontroller(@RequestBody KontrollerDto kontrollerDto) {
-    //     kontroller.methodService(kontrollerDto);
-	// 	// return kontrollerRepository.save(kontroller);
-    //     return kontrollerDto;
-	// }
-
+    //get one kontrollers by id
+    // @GetMapping("/kontrollers")
+    // public void getOneKontroller(@RequestParam Long id) {
+    //     kontrollerService.getOneKontrollerService(id);
+    // }
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")

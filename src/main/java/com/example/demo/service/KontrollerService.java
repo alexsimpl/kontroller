@@ -15,8 +15,9 @@ public class KontrollerService {
 
      @Autowired
     private KontrollerRepository kontrollerRepository;
-    // private MessagesRepository messagesRepository;    
+   
     
+    //save kontroller in db
     public void createKontrollerService(KontrollerDto kontrollerDto) {
 	    // KontrollerDto kontrollerDto = new KontrollerDto();
 	    // kontrollerDto.setType(kontrollerDto.getType());
@@ -28,14 +29,25 @@ public class KontrollerService {
 
         KontrollerEntity kontrollerEntity = new KontrollerEntity();
         kontrollerEntity = KontrollerMapper.toEntity(kontrollerDto);
-	    //Сохранение в БД
         kontrollerRepository.save(kontrollerEntity);
         // return kontrollerEntity;
 
     }
 
-    public List<KontrollerEntity> getAllKontrollers() {
-        return kontrollerRepository.findAll();
+    //get One kontroller by id
+    // public KontrollerEntity getOneKontrollerService(Long id) {
+	//     KontrollerEntity kontrollerEntity = kontrollerRepository.findById(id).get();
+    //     return kontrollerEntity;
+    // }
+
+//  public List<KontrollerEntity> getAllKontrollers() {
+//     return kontrollerRepository.findAll();
+//  }
+
+    //get All kontrollers
+    public List<KontrollerEntity> getAllKontrollerService() {
+	    List<KontrollerEntity> kontrollerEntity = kontrollerRepository.findAll();
+        return kontrollerEntity;
     }
 
 }

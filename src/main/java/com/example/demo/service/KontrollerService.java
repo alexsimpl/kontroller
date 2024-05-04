@@ -35,10 +35,10 @@ public class KontrollerService {
     }
 
     //get One kontroller by id
-    // public KontrollerEntity getOneKontrollerService(Long id) {
-	//     KontrollerEntity kontrollerEntity = kontrollerRepository.findById(id).get();
-    //     return kontrollerEntity;
-    // }
+    public KontrollerEntity getOneKontrollerService(Long id) {
+	    KontrollerEntity kontrollerEntity = kontrollerRepository.findById(id).get();
+        return kontrollerEntity;
+    }
 
 //  public List<KontrollerEntity> getAllKontrollers() {
 //     return kontrollerRepository.findAll();

@@ -29,19 +29,20 @@ public class KontrollerController {
 
     // get all kontrollers
     @GetMapping("/kontrollers")
-    // public void getAllKontrollers() {
-    //     kontrollerService.getAllKontrollerService();
-    // }
-
     public ResponseEntity<?> getAllKontrollers() {
         return ResponseEntity.ok(kontrollerService.getAllKontrollerService());
     }
 
     //get one kontrollers by id
-    // @GetMapping("/kontrollers")
+    @GetMapping("/kontrollers/{id}")
     // public void getOneKontroller(@RequestParam Long id) {
     //     kontrollerService.getOneKontrollerService(id);
     // }
+
+    public ResponseEntity<?> getOneKontroller(@RequestParam Long id) {
+        return ResponseEntity.ok(kontrollerService.getOneKontrollerService(id));
+    }
+
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")

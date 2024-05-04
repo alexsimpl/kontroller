@@ -33,6 +33,12 @@ public class KontrollerMapper {
         MessagesDto messagesDto = new MessagesDto();
         messagesDto.setId(messagesEntity.getIdMessages());
         messagesDto.setOperation(messagesEntity.getOperation());
+        messagesDto.setActive(messagesEntity.getActive());
+        messagesDto.setMode(messagesEntity.getMode());
+        messagesDto.setControllerIp(messagesEntity.getControllerIp());
+        messagesDto.setFw(messagesEntity.getFw());
+        messagesDto.setReaderProtocol(messagesEntity.getReaderProtocol());
+        messagesDto.setEvents(messagesEntity.getEvents().stream().map(KontrollerMapper::toDto).collect(Collectors.toList()));
         return messagesDto;
     }
 
@@ -40,6 +46,12 @@ public class KontrollerMapper {
         MessagesEntity messagesEntity = new MessagesEntity();
         messagesEntity.setIdMessages(messagesDto.getId());
         messagesEntity.setOperation(messagesDto.getOperation());
+        messagesEntity.setActive(messagesDto.getActive());
+        messagesEntity.setMode(messagesDto.getMode());
+        messagesEntity.setControllerIp(messagesDto.getControllerIp());
+        messagesEntity.setFw(messagesDto.getFw());
+        messagesEntity.setReaderProtocol(messagesDto.getReaderProtocol());
+        messagesEntity.setEvents(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
         return messagesEntity;
     }
 
@@ -48,6 +60,8 @@ public class KontrollerMapper {
         eventsDto.setId(eventsEntity.getId());
         eventsDto.setFlag(eventsEntity.getFlag());
         eventsDto.setEvent(eventsEntity.getEvent());
+        eventsDto.setTime(eventsEntity.getTime());
+        eventsDto.setCard(eventsEntity.getCard());
         return eventsDto;
     }
 
@@ -56,6 +70,8 @@ public class KontrollerMapper {
         eventsEntity.setId(eventsDto.getId());
         eventsEntity.setFlag(eventsDto.getFlag());
         eventsEntity.setEvent(eventsDto.getEvent());
+        eventsEntity.setTime(eventsDto.getTime());
+        eventsEntity.setCard(eventsDto.getCard());
         return eventsEntity;
     }
 

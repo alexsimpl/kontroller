@@ -45,6 +45,7 @@ public class KontrollerController {
     @PostMapping("/kontrollers")
 	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) {
         kontrollerService.createKontrollerService(kontrollerDto);
+        // System.out.println(kontrollerDto.getMessages());
         // KontrollerEntity kontrollerEntity = kontrollerService.createKontrollerService(kontrollerDto);
 		// return kontrollerEntity;
         

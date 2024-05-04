@@ -15,16 +15,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "events")
-
 public class EventsEntity {
-
-    @ManyToOne
-    @JoinColumn(name = "eventsMessages")
-    private MessagesEntity eventsMessages;
-
-    // @ManyToOne
-    // @JoinColumn(name = "eventsKontroller_id")
-    // private KontrollerEntity eventsKontroller;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,4 +32,12 @@ public class EventsEntity {
 
     @Column(name = "card")
     private String card;
+
+    @ManyToOne
+    @JoinColumn(name = "eventsMessages_id")
+    private MessagesEntity eventsMessages;
+
+    // @ManyToOne
+    // @JoinColumn(name = "eventsKontroller_id")
+    // private KontrollerEntity eventsKontroller;
 }

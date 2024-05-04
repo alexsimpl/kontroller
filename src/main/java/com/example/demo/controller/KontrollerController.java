@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.KontrollerDto;
+import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.service.KontrollerService;
 
 // @CrossOrigin(origins = "http://localhost:4200")
@@ -37,7 +38,7 @@ public class KontrollerController {
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")
-	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) {
+	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
         kontrollerService.createKontrollerService(kontrollerDto);
 	}
    

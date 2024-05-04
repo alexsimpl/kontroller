@@ -6,4 +6,5 @@ import com.example.demo.Entity.KontrollerEntity;
 
 public interface KontrollerRepository extends JpaRepository<KontrollerEntity, Long> {
 
+    KontrollerEntity findBySn(String sn);
 }

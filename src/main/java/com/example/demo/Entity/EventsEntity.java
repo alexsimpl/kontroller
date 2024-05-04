@@ -9,8 +9,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -34,8 +35,8 @@ public class EventsEntity {
     private String card;
 
     @ManyToOne
-    @JoinColumn(name = "eventsMessages_id")
-    private MessagesEntity eventsMessages;
+    @JoinColumn(name = "messages_id")
+    private MessagesEntity messages;
 
     // @ManyToOne
     // @JoinColumn(name = "eventsKontroller_id")

@@ -6,8 +6,10 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -24,7 +26,7 @@ public class KontrollerEntity {
     @Column(name = "sn")
     private String sn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "messagesKontroller")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller")
     @Column(name = "messagesKontroller_id")
     private List<MessagesEntity> messages;
     

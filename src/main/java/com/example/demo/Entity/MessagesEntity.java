@@ -6,8 +6,10 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -40,10 +42,10 @@ public class MessagesEntity {
     private String readerProtocol;
 
     @ManyToOne
-    @JoinColumn(name = "messagesKontroller_id")
-    private KontrollerEntity messagesKontroller;
+    @JoinColumn(name = "messages_id")
+    private KontrollerEntity kontroller;
 
     @Column(name = "events")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventsMessages")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "messages")
     private List<EventsEntity> events;
 }

@@ -11,7 +11,7 @@ import com.example.demo.Entity.MessagesEntity;
 
 public class KontrollerMapper {
 
-    public static KontrollerDto toDto(KontrollerEntity kontrollerEntity) {
+    public static KontrollerDto KontrollertoDto(KontrollerEntity kontrollerEntity) {
         KontrollerDto kontrollerDto = new KontrollerDto();
         kontrollerDto.setId(kontrollerEntity.getId());
         kontrollerDto.setType(kontrollerEntity.getType());

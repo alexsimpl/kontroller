@@ -19,8 +19,8 @@ import lombok.Setter;
 public class EventsEntity {
 
     @ManyToOne
-    @JoinColumn(name = "messagesKontroller_id")
-    private MessagesEntity eventMessages;
+    @JoinColumn(name = "eventsMessages")
+    private MessagesEntity eventsMessages;
 
     // @ManyToOne
     // @JoinColumn(name = "eventsKontroller_id")

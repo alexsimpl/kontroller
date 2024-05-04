@@ -14,10 +14,6 @@ import lombok.Setter;
 @Table(name = "messages")
 public class MessagesEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "messagesKontroller_id")
-    private KontrollerEntity messagesKontroller;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -42,6 +38,10 @@ public class MessagesEntity {
 
     @Column(name = "readerProtocol")
     private String readerProtocol;
+
+    // @ManyToOne
+    // @JoinColumn(name = "kontroller_id")
+    // private KontrollerEntity kontroller_id;
 
     @Column(name = "events")
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventsMessages")

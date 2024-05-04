@@ -15,12 +15,12 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "events")
-// @ManyToOne
+
 public class EventsEntity {
 
     @ManyToOne
     @JoinColumn(name = "messagesKontroller_id")
-    private MessagesEntity eventsMessages;
+    private MessagesEntity eventMessages;
 
     // @ManyToOne
     // @JoinColumn(name = "eventsKontroller_id")

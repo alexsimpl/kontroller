@@ -20,6 +20,6 @@ public class MessagesDto {
     private int mode;
     private String controllerIp;
     private String readerProtocol;
-    private List<EventsDto> messages;
+    private List<EventsDto> events;
     
 }

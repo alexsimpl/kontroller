@@ -2,12 +2,10 @@ package com.example.demo.service;
 
 import java.util.List;
 
-import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.KontrollerDto;
-import com.example.demo.DTO.MessagesDto;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.repository.KontrollerRepository;

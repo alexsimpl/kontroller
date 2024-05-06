@@ -41,5 +41,11 @@ public class KontrollerController {
 	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
         kontrollerService.createKontrollerService(kontrollerDto);
 	}
+
+    //response to kontroller
+    @PostMapping("/kontroller")
+    public ResponseEntity<?> responseToKontroller(@RequestBody KontrollerDto kontrollerDto) {
+        return ResponseEntity.ok(kontrollerService.responseToKontrollerService(kontrollerDto));
+    }
    
 }

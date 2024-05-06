@@ -73,6 +73,7 @@ public class KontrollerMapper {
         eventsEntity.setEvent(eventsDto.getEvent());
         eventsEntity.setTime(eventsDto.getTime());
         eventsEntity.setCard(eventsDto.getCard());
+        // eventsEntity.setMessages(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
         return eventsEntity;
     }
 

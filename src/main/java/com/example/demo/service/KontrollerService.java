@@ -3,14 +3,18 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.DTO.KontrollerDto;
+import com.example.demo.DTO.MessagesDto;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.repository.EventsRepository;
 import com.example.demo.repository.KontrollerRepository;
 import com.example.demo.repository.MessagesRepository;
+
+import io.micrometer.core.ipc.http.HttpSender.Response;
 
 
 @Service
@@ -39,12 +43,19 @@ public class KontrollerService {
             kontrollerRepository.save(kontrollerEntity);
             // return kontrollerEntity;
         }
-        /* 
-        //selecting an answer depending on the value "operation"
-        MessagesDto messages = new MessagesDto();
-        kontrollerDto.getMessages();
+        // /* 
         
-        switch (messages.getOperation()) {
+        // */
+    }
+
+    //response to kontroller 
+    public KontrollerEntity responseToKontrollerService(KontrollerDto kontrollerDto) {
+        //selecting an answer depending on the value "operation"
+        List<MessagesDto> messages = kontrollerDto.getMessages();
+        String operation = messages.get(0).getOperation();
+        KontrollerEntity kontrollerEntity = new KontrollerEntity();
+
+        switch (operation) {
             case "power_on":
                 //response power_on
             // { 
@@ -60,7 +71,23 @@ public class KontrollerService {
             //         }
             //     ]
             // }
-                break;
+            // kontrollerEntity.setMessages();
+                System.out.println("operation is " + operation);
+                System.out.println("events flag is " + messages.get(0).getEvents().get(0).getCard());
+                return kontrollerEntity;
+                // return ({
+                //     "date": date_answer,
+                //     "interval": 10,
+                //     "messages":
+                //     [
+                //     {
+                //         "id": id,
+                //         "operation": "set_active",
+                //         "active": 1,
+                //         "online": 0
+                //     }
+                //     ]
+                // })
 
             case "ping":
              //response ping
@@ -72,7 +99,8 @@ public class KontrollerService {
                     //     ]
                     // }
                 // res.send
-                break;
+                System.out.println("operation is " + operation);
+                return kontrollerEntity;
 
             case "events":
              //response events
@@ -88,12 +116,12 @@ public class KontrollerService {
             //         }
             //     ]
             // }
-                break;
+                System.out.println("operation is " + operation);
+                return kontrollerEntity;
         
             default:
-                break;
+                return kontrollerEntity;
         }
-        */
     }
 
     //get One kontroller by id
@@ -102,9 +130,9 @@ public class KontrollerService {
         return kontrollerEntity;
     }
 
-//  public List<KontrollerEntity> getAllKontrollers() {
-//     return kontrollerRepository.findAll();
-//  }
+    public List<KontrollerEntity> getAllKontrollers() {
+        return kontrollerRepository.findAll();
+    }
 
     //get All kontrollers
     public List<KontrollerEntity> getAllKontrollerService() {

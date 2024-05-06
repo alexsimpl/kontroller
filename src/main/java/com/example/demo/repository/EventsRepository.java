@@ -3,8 +3,8 @@ package com.example.demo.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 // import org.springframework.data.repository.CrudRepository;
 
-import com.example.demo.Entity.EmployeeEntity;
+import com.example.demo.Entity.EventsEntity;
 
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
-
+public interface EventsRepository extends JpaRepository<EventsEntity, Long> {
+    EventsEntity findById(long id);
 }

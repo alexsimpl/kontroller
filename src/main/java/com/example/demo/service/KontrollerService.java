@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.exception.KontrollerAlreadyExistException;
+import com.example.demo.repository.EventsRepository;
 import com.example.demo.repository.KontrollerRepository;
+import com.example.demo.repository.MessagesRepository;
 
 
 @Service
@@ -16,7 +18,8 @@ public class KontrollerService {
 
      @Autowired
     private KontrollerRepository kontrollerRepository;
-   
+    // private MessagesRepository messagesRepository;
+    // private EventsRepository eventsRepository;
     
     //save kontroller in db
     public void createKontrollerService(KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
@@ -28,7 +31,7 @@ public class KontrollerService {
         //     .collect(Collectors.toList());
         //     kontrollerDto.setMessages(listClass);
 
-        if (kontrollerRepository.findBySn(kontrollerDto.getSn()) != null ) {
+        if (kontrollerRepository.findBySn(kontrollerDto.getSn()) != null) {
             throw new KontrollerAlreadyExistException("Kontroller with sn this serial number already exists");
         } else {
             KontrollerEntity kontrollerEntity = new KontrollerEntity();

@@ -17,6 +17,7 @@ public class KontrollerMapper {
         kontrollerDto.setType(kontrollerEntity.getType());
         kontrollerDto.setSn(kontrollerEntity.getSn());
         kontrollerDto.setMessages(kontrollerEntity.getMessages().stream().map(KontrollerMapper::toDto).collect(Collectors.toList()));
+
         return kontrollerDto;
     }
 

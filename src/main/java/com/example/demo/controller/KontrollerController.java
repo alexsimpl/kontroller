@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.DTO.KontrollerAnswerDto;
 import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.service.KontrollerService;
@@ -44,8 +45,8 @@ public class KontrollerController {
 
     //response to kontroller
     @PostMapping("/kontroller")
-    public ResponseEntity<?> responseToKontroller(@RequestBody KontrollerDto kontrollerDto) {
-        return ResponseEntity.ok(kontrollerService.responseToKontrollerService(kontrollerDto));
+    public ResponseEntity<?> responseToKontroller(@RequestBody KontrollerAnswerDto kontrollerAnswerDto) {
+        return ResponseEntity.ok(kontrollerService.responseToKontrollerService(kontrollerAnswerDto));
     }
    
 }

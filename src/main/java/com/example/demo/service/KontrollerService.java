@@ -1,20 +1,24 @@
 package com.example.demo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+// import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.DTO.KontrollerAnswerDto;
 import com.example.demo.DTO.KontrollerDto;
-import com.example.demo.DTO.MessagesDto;
+import com.example.demo.DTO.MessagesAnswerDto;
+import com.example.demo.Entity.KontrollerAnswerEntity;
+// import com.example.demo.Entity.KontrollerAnswerEntity;
 import com.example.demo.Entity.KontrollerEntity;
+import com.example.demo.Entity.MessagesAnswerEntity;
 import com.example.demo.exception.KontrollerAlreadyExistException;
-import com.example.demo.repository.EventsRepository;
+// import com.example.demo.repository.EventsRepository;
 import com.example.demo.repository.KontrollerRepository;
-import com.example.demo.repository.MessagesRepository;
+// import com.example.demo.repository.MessagesRepository;
 
-import io.micrometer.core.ipc.http.HttpSender.Response;
 
 
 @Service
@@ -27,13 +31,6 @@ public class KontrollerService {
     
     //save kontroller in db
     public void createKontrollerService(KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
-	    // KontrollerDto kontrollerDto = new KontrollerDto();
-	    // kontrollerDto.setType(kontrollerDto.getType());
-	    // kontrollerDto.setSn(kontrollerDto.getSn());
-        // List<MessagesDto> listClass = kontrollerDto.getMessages()
-        //     .map(this::getMessagesDto)
-        //     .collect(Collectors.toList());
-        //     kontrollerDto.setMessages(listClass);
 
         if (kontrollerRepository.findBySn(kontrollerDto.getSn()) != null) {
             throw new KontrollerAlreadyExistException("Kontroller with sn this serial number already exists");
@@ -43,19 +40,24 @@ public class KontrollerService {
             kontrollerRepository.save(kontrollerEntity);
             // return kontrollerEntity;
         }
-        // /* 
-        
-        // */
     }
 
     //response to kontroller 
-    public KontrollerEntity responseToKontrollerService(KontrollerDto kontrollerDto) {
+    public KontrollerAnswerEntity responseToKontrollerService(KontrollerAnswerDto kontrollerAnswerDto) {
         //selecting an answer depending on the value "operation"
-        List<MessagesDto> messages = kontrollerDto.getMessages();
-        String operation = messages.get(0).getOperation();
-        KontrollerEntity kontrollerEntity = new KontrollerEntity();
-
-        switch (operation) {
+        List<MessagesAnswerDto> messages = kontrollerAnswerDto.getMessages();
+        // String operation = messages.get(0).getOperation();
+        // String operation1 = messages.get(1).getOperation();
+        // String operation1 = messages.get(0).getOperation();
+        // KontrollerAnswerPingEntity kontrollerAnswerPingEntity = new KontrollerAnswerPingEntity();
+        KontrollerAnswerEntity kontrollerAnswerEntity = new KontrollerAnswerEntity();
+        System.out.println("Size of list messages is " + messages.size());
+        
+        if (!messages.get(0).getOperation().isEmpty()) {
+            System.out.println("Operation in 0 elements");
+            
+        switch (messages.get(0).getOperation()) {
+            
             case "power_on":
                 //response power_on
             // { 
@@ -72,25 +74,23 @@ public class KontrollerService {
             //     ]
             // }
             // kontrollerEntity.setMessages();
-                System.out.println("operation is " + operation);
-                System.out.println("events flag is " + messages.get(0).getEvents().get(0).getCard());
-                return kontrollerEntity;
-                // return ({
-                //     "date": date_answer,
-                //     "interval": 10,
-                //     "messages":
-                //     [
-                //     {
-                //         "id": id,
-                //         "operation": "set_active",
-                //         "active": 1,
-                //         "online": 0
-                //     }
-                //     ]
-                // })
+                System.out.println("operation is " + messages.get(0).getOperation());
+                kontrollerAnswerEntity = KontrollerAnswerMapper.toEntity(kontrollerAnswerDto);
 
+                kontrollerAnswerEntity.setDate("1234");
+                kontrollerAnswerEntity.setInterval(10);
+                kontrollerAnswerEntity.getMessages().get(0).setId(kontrollerAnswerEntity.getMessages().get(0).getIdMessages());
+                kontrollerAnswerEntity.getMessages().get(0).setIdMessages(0);
+                kontrollerAnswerEntity.getMessages().get(0).setOperation("set_active");
+                kontrollerAnswerEntity.getMessages().get(0).setFw(null);
+                kontrollerAnswerEntity.getMessages().get(0).setActive(1);
+                kontrollerAnswerEntity.getMessages().get(0).setController_ip(null);
+                kontrollerAnswerEntity.getMessages().get(0).setReader_protocol(null);
+                kontrollerAnswerEntity.getMessages().get(0).setOnline(0);
+                return kontrollerAnswerEntity;
+               
             case "ping":
-             //response ping
+            //response ping
                     //   { 
                     //     "date": date_answer,
                     //     "interval": 10,
@@ -99,11 +99,20 @@ public class KontrollerService {
                     //     ]
                     // }
                 // res.send
-                System.out.println("operation is " + operation);
-                return kontrollerEntity;
+                System.out.println("operation is " + messages.get(0).getOperation());
+                // kontrollerAnswerPingEntity = KontrollerAnswerMapper.toEntity(kontrollerAnswerDto);
+                
+                // kontrollerAnswerEntity.setId(kontrollerAnswerDto.getId());
+
+                // kontrollerAnswerEntity.setId(kontrollerAnswerDto.getMessages().get(0).getId());
+                kontrollerAnswerEntity.setDate("123456");
+                kontrollerAnswerEntity.setInterval(10);
+                List<MessagesAnswerEntity> emptyList = new ArrayList<>();
+                kontrollerAnswerEntity.setMessages(emptyList);
+                return kontrollerAnswerEntity;
 
             case "events":
-             //response events
+            //response events
             // { 
             //     "date": date_answer,
             //     "interval": 10,
@@ -116,11 +125,63 @@ public class KontrollerService {
             //         }
             //     ]
             // }
-                System.out.println("operation is " + operation);
-                return kontrollerEntity;
+                System.out.println("operation is " + messages.get(0).getOperation());
+                
+                return kontrollerAnswerEntity;
         
             default:
-                return kontrollerEntity;
+                return kontrollerAnswerEntity;
+        } 
+        } else
+        if (!messages.get(1).getOperation().isEmpty()){
+            System.out.println("Operation in 1 elements");
+            switch (messages.get(1).getOperation()) {
+
+                case "ping":
+                //response ping
+                        //   { 
+                        //     "date": date_answer,
+                        //     "interval": 10,
+                        //     "messages":
+                        //     [
+                        //     ]
+                        // }
+                    // res.send
+                    System.out.println("operation is " + messages.get(0).getOperation());
+                    // kontrollerAnswerPingEntity = KontrollerAnswerMapper.toEntity(kontrollerAnswerDto);
+                    
+                    // kontrollerAnswerEntity.setId(kontrollerAnswerDto.getId());
+    
+                    kontrollerAnswerEntity.setId(kontrollerAnswerDto.getMessages().get(0).getId());
+                    kontrollerAnswerEntity.setDate("123456");
+                    kontrollerAnswerEntity.setInterval(10);
+                    List<MessagesAnswerEntity> emptyList = new ArrayList<>();
+                    kontrollerAnswerEntity.setMessages(emptyList);
+                    return kontrollerAnswerEntity;
+
+                case "events":
+                    //response events
+                    // { 
+                    //     "date": date_answer,
+                    //     "interval": 10,
+                    //     "messages":
+                    //     [
+                    //         {
+                    //             "id": id,
+                    //             "operation": "events",
+                    //             "events_success": 10
+                    //         }
+                    //     ]
+                    // }
+                    System.out.println("operation is " + messages.get(0).getOperation());
+                        
+                    return kontrollerAnswerEntity;
+            
+                default:
+                    return kontrollerAnswerEntity;
+            }
+        } else {
+            return kontrollerAnswerEntity;
         }
     }
 

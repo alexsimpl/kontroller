@@ -1,6 +1,5 @@
 package com.example.demo.DTO;
 
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,16 +10,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class MessagesDto {
+public class MessagesAnswerDto {
     private long id;
     // private long idMessages;
     private String operation;
     private String fw;
     private String conn_fw;
     private int active;
-    private int mode;
+    private int online;
     private String controller_ip;
     private String reader_protocol;
-    private List<EventsDto> events;
-    
 }

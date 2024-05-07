@@ -1,6 +1,5 @@
 package com.example.demo.Entity;
 
-import java.util.List;
 
 // import com.fasterxml.jackson.databind.JsonNode;
 
@@ -13,8 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "messages")
-public class MessagesEntity {
+@Table(name = "messages_answer")
+public class MessagesAnswerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +34,6 @@ public class MessagesEntity {
     @Column(name = "active")
     private int active;
 
-    @Column(name = "mode")
-    private int mode;
-
     @Column(name = "controller_ip")
     private String controller_ip;
 
@@ -47,11 +43,10 @@ public class MessagesEntity {
     @Column(name = "online")
     private int online;
 
+    @Column(name = "events_success")
+    private int events_success;
+
     @ManyToOne
     @JoinColumn(name = "messages_id")
-    private KontrollerEntity kontroller;
-
-    @Column(name = "events")
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "messages")
-    private List<EventsEntity> events;
+    private KontrollerAnswerEntity kontroller_answer;
 }

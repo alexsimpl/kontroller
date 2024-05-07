@@ -36,9 +36,9 @@ public class KontrollerMapper {
         messagesDto.setOperation(messagesEntity.getOperation());
         messagesDto.setActive(messagesEntity.getActive());
         messagesDto.setMode(messagesEntity.getMode());
-        messagesDto.setControllerIp(messagesEntity.getControllerIp());
+        messagesDto.setController_ip(messagesEntity.getController_ip());
         messagesDto.setFw(messagesEntity.getFw());
-        messagesDto.setReaderProtocol(messagesEntity.getReaderProtocol());
+        messagesDto.setReader_protocol(messagesEntity.getReader_protocol());
         messagesDto.setEvents(messagesEntity.getEvents().stream().map(KontrollerMapper::toDto).collect(Collectors.toList()));
         return messagesDto;
     }
@@ -49,9 +49,9 @@ public class KontrollerMapper {
         messagesEntity.setOperation(messagesDto.getOperation());
         messagesEntity.setActive(messagesDto.getActive());
         messagesEntity.setMode(messagesDto.getMode());
-        messagesEntity.setControllerIp(messagesDto.getControllerIp());
+        messagesEntity.setController_ip(messagesDto.getController_ip());
         messagesEntity.setFw(messagesDto.getFw());
-        messagesEntity.setReaderProtocol(messagesDto.getReaderProtocol());
+        messagesEntity.setReader_protocol(messagesDto.getReader_protocol());
         messagesEntity.setEvents(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
         return messagesEntity;
     }

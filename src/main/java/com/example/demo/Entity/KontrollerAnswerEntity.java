@@ -13,18 +13,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "kontroller")
-public class KontrollerEntity {
+@Table(name = "kontroller_answer")
+public class KontrollerAnswerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "type")
-    private String type;
-
-    @Column(name = "sn")
-    private String sn;
 
     @Column(name = "date")
     private String date;
@@ -32,12 +26,9 @@ public class KontrollerEntity {
     @Column(name = "interval")
     private int interval;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller_answer")
     @Column(name = "messagesKontroller_id")
-    private List<MessagesEntity> messages;
+    private List<MessagesAnswerEntity> messages;
     
-    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventsKontroller")
-    // @Column(name = "eventsKontroller_id")
-    // private List<EventsEntity> events;
 
 }

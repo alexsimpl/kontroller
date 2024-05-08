@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.DTO.KontrollerAnswerDto;
 import com.example.demo.DTO.KontrollerDto;
+import com.example.demo.DTO.Answer.KontrollerAnswerDto;
 import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.service.KontrollerService;
 

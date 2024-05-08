@@ -2,11 +2,10 @@ package com.example.demo.service;
 
 import java.util.stream.Collectors;
 
-
-import com.example.demo.DTO.KontrollerAnswerDto;
-import com.example.demo.DTO.MessagesAnswerDto;
-import com.example.demo.Entity.KontrollerAnswerEntity;
-import com.example.demo.Entity.MessagesAnswerEntity;
+import com.example.demo.DTO.Answer.KontrollerAnswerDto;
+import com.example.demo.DTO.Answer.MessagesAnswerDto;
+import com.example.demo.Entity.Answer.KontrollerAnswerEntity;
+import com.example.demo.Entity.Answer.MessagesAnswerEntity;
 
 public class KontrollerAnswerMapper {
 

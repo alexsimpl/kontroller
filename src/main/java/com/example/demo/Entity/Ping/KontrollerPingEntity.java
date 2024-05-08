@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.example.demo.Entity.Ping;
 
 import java.util.List;
 
@@ -13,22 +13,21 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "kontroller_poweron")
-public class KontrollerPowerOnEntity {
+@Table(name = "kontroller_ping")
+public class KontrollerPingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long iD;
+    private long id;
 
     @Column(name = "type")
     private String type;
 
     @Column(name = "sn")
-    private long sn;
+    private Long sn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller_poweron")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller_ping")
     @Column(name = "messagesKontroller_id")
-    private List<MessagesPowerOnEntity> messages;
-    
+    private List<MessagesPingEntity> messages;
 
 }

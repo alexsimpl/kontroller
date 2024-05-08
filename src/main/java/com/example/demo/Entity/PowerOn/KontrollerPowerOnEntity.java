@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.example.demo.Entity.PowerOn;
 
 import java.util.List;
 
@@ -13,22 +13,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "kontroller_answer")
-public class KontrollerAnswerEntity {
+@Table(name = "kontroller_poweron")
+public class KontrollerPowerOnEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long iD;
 
-    @Column(name = "date")
-    private String date;
+    @Column(name = "type")
+    private String type;
 
-    @Column(name = "interval")
-    private int interval;
+    @Column(name = "sn")
+    private long sn;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller_answer")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller_poweron")
     @Column(name = "messagesKontroller_id")
-    private List<MessagesAnswerEntity> messages;
+    private List<MessagesPowerOnEntity> messages;
     
 
 }

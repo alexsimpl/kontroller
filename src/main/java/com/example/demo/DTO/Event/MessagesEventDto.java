@@ -1,5 +1,7 @@
-package com.example.demo.DTO;
+package com.example.demo.DTO.Event;
 
+
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,11 +12,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class MessagesPingDto {
+public class MessagesEventDto {
     private long id;
-    // private long idMessages;
+    private long idMessages;
     private String operation;
     private int active;
     private int mode;
     private int success;
+    private List<EventsEventDto> events;
+
 }

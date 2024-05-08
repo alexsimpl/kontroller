@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.example.demo.Entity.Answer;
 
 
 // import com.fasterxml.jackson.databind.JsonNode;

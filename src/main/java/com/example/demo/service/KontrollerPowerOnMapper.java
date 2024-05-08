@@ -2,11 +2,10 @@ package com.example.demo.service;
 
 import java.util.stream.Collectors;
 
-
-import com.example.demo.DTO.KontrollerPowerOnDto;
-import com.example.demo.DTO.MessagesPowerOnDto;
-import com.example.demo.Entity.KontrollerPowerOnEntity;
-import com.example.demo.Entity.MessagesPowerOnEntity;
+import com.example.demo.DTO.PowerOn.KontrollerPowerOnDto;
+import com.example.demo.DTO.PowerOn.MessagesPowerOnDto;
+import com.example.demo.Entity.PowerOn.KontrollerPowerOnEntity;
+import com.example.demo.Entity.PowerOn.MessagesPowerOnEntity;
 
 
 public class KontrollerPowerOnMapper {

@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.example.demo.Entity.Ping;
 
 
 // import com.fasterxml.jackson.databind.JsonNode;
@@ -12,8 +12,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "messages_poweron")
-public class MessagesPowerOnEntity {
+@Table(name = "messages_ping")
+public class MessagesPingEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,28 +25,13 @@ public class MessagesPowerOnEntity {
     @Column(name = "operation")
     private String operation;
 
-    @Column(name = "fw")
-    private String fw;
-
-    @Column(name = "conn_fw")
-    private String conn_fw;
-
     @Column(name = "active")
     private int active;
-
-    @Column(name = "controller_ip")
-    private String controller_ip;
-
-    @Column(name = "reader_protocol")
-    private String reader_protocol;
 
     @Column(name = "mode")
     private int mode;
 
-    @Column(name = "events_success")
-    private int events_success;
-
     @ManyToOne
     @JoinColumn(name = "messages_id")
-    private KontrollerPowerOnEntity kontroller_poweron;
+    private KontrollerPingEntity kontroller_ping;
 }

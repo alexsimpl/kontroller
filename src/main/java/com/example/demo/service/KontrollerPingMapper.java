@@ -2,10 +2,10 @@ package com.example.demo.service;
 
 import java.util.stream.Collectors;
 
-import com.example.demo.DTO.KontrollerPingDto;
-import com.example.demo.DTO.MessagesPingDto;
-import com.example.demo.Entity.KontrollerPingEntity;
-import com.example.demo.Entity.MessagesPingEntity;
+import com.example.demo.DTO.Ping.KontrollerPingDto;
+import com.example.demo.DTO.Ping.MessagesPingDto;
+import com.example.demo.Entity.Ping.KontrollerPingEntity;
+import com.example.demo.Entity.Ping.MessagesPingEntity;
 
 
 public class KontrollerPingMapper {

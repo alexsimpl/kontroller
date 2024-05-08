@@ -1,5 +1,6 @@
 package com.example.demo.DTO;
 
+
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -11,9 +12,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class KontrollerDto {
+public class MessagesEventDto {
     private long id;
-    private String type;
-    private String sn;
-    private List<MessagesDto> messages;
+    private long idMessages;
+    private String operation;
+    private int active;
+    private int mode;
+    private int success;
+    private List<EventsEventDto> events;
+
 }

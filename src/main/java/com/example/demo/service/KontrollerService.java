@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import com.example.demo.Entity.KontrollerAnswerEntity;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.Entity.MessagesAnswerEntity;
 import com.example.demo.exception.KontrollerAlreadyExistException;
+import com.example.demo.repository.KontrollerAnswerRepository;
 // import com.example.demo.repository.EventsRepository;
 import com.example.demo.repository.KontrollerRepository;
 // import com.example.demo.repository.MessagesRepository;
@@ -28,6 +30,7 @@ public class KontrollerService {
     private KontrollerRepository kontrollerRepository;
     // private MessagesRepository messagesRepository;
     // private EventsRepository eventsRepository;
+    private KontrollerAnswerRepository kontrollerAnswerRepository;
     
     //save kontroller in db
     public void createKontrollerService(KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
@@ -46,14 +49,13 @@ public class KontrollerService {
     public KontrollerAnswerEntity responseToKontrollerService(KontrollerAnswerDto kontrollerAnswerDto) {
         //selecting an answer depending on the value "operation"
         List<MessagesAnswerDto> messages = kontrollerAnswerDto.getMessages();
-        // String operation = messages.get(0).getOperation();
-        // String operation1 = messages.get(1).getOperation();
-        // String operation1 = messages.get(0).getOperation();
-        // KontrollerAnswerPingEntity kontrollerAnswerPingEntity = new KontrollerAnswerPingEntity();
         KontrollerAnswerEntity kontrollerAnswerEntity = new KontrollerAnswerEntity();
         System.out.println("Size of list messages is " + messages.size());
-        
-        if (!messages.get(0).getOperation().isEmpty()) {
+        System.out.println("--------------------------------");
+        // System.out.println("--------------"+!messages.get(0).getOperation().isEmpty());
+        System.out.println("--------------------------------");
+
+        if (messages.size() == 1 && !messages.get(0).getOperation().isEmpty()) {
             System.out.println("Operation in 0 elements");
             
         switch (messages.get(0).getOperation()) {
@@ -76,7 +78,6 @@ public class KontrollerService {
             // kontrollerEntity.setMessages();
                 System.out.println("operation is " + messages.get(0).getOperation());
                 kontrollerAnswerEntity = KontrollerAnswerMapper.toEntity(kontrollerAnswerDto);
-
                 kontrollerAnswerEntity.setDate("1234");
                 kontrollerAnswerEntity.setInterval(10);
                 kontrollerAnswerEntity.getMessages().get(0).setId(kontrollerAnswerEntity.getMessages().get(0).getIdMessages());
@@ -126,6 +127,9 @@ public class KontrollerService {
             //     ]
             // }
                 System.out.println("operation is " + messages.get(0).getOperation());
+                KontrollerAnswerEntity kontrollerAnswerEventsEntity = new KontrollerAnswerEntity();
+                kontrollerAnswerEventsEntity = KontrollerAnswerMapper.toEntity(kontrollerAnswerDto);
+                kontrollerAnswerRepository.save(kontrollerAnswerEventsEntity);
                 
                 return kontrollerAnswerEntity;
         
@@ -152,7 +156,7 @@ public class KontrollerService {
                     
                     // kontrollerAnswerEntity.setId(kontrollerAnswerDto.getId());
     
-                    kontrollerAnswerEntity.setId(kontrollerAnswerDto.getMessages().get(0).getId());
+                    kontrollerAnswerEntity.setID(kontrollerAnswerDto.getMessages().get(0).getId());
                     kontrollerAnswerEntity.setDate("123456");
                     kontrollerAnswerEntity.setInterval(10);
                     List<MessagesAnswerEntity> emptyList = new ArrayList<>();
@@ -174,7 +178,14 @@ public class KontrollerService {
                     //     ]
                     // }
                     System.out.println("operation is " + messages.get(0).getOperation());
-                        
+
+                    kontrollerAnswerEntity.setDate("123456");
+                    kontrollerAnswerEntity.setInterval(10);
+                    kontrollerAnswerEntity.getMessages().get(0).setId(kontrollerAnswerEntity.getMessages().get(0).getIdMessages());
+                    kontrollerAnswerEntity.getMessages().get(0).setOperation("events");
+                    kontrollerAnswerEntity.getMessages().get(0).setEvents_success(10);
+
+                    
                     return kontrollerAnswerEntity;
             
                 default:

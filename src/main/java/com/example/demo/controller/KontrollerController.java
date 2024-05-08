@@ -15,7 +15,6 @@ import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.exception.KontrollerAlreadyExistException;
 import com.example.demo.service.KontrollerService;
 
-// @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/")
 public class KontrollerController {
@@ -23,13 +22,13 @@ public class KontrollerController {
     @Autowired
     private KontrollerService kontrollerService;
 
-    // get all kontrollers
+    // get all kontrollers for external client
     @GetMapping("/kontrollers")
     public ResponseEntity<?> getAllKontrollers() {
         return ResponseEntity.ok(kontrollerService.getAllKontrollerService());
     }
 
-    //get one kontrollers by id
+    //get one kontrollers by id for external client
     @GetMapping("/kontrollers/{id}")
 
     public ResponseEntity<?> getOneKontroller(@RequestParam Long id) {
@@ -43,7 +42,7 @@ public class KontrollerController {
         kontrollerService.createKontrollerService(kontrollerDto);
 	}
 
-    //response to kontroller
+    //response to kontroller for Postman
     @PostMapping("/kontroller")
     public ResponseEntity<?> responseToKontroller(@RequestBody KontrollerAnswerDto kontrollerAnswerDto) {
         return ResponseEntity.ok(kontrollerService.responseToKontrollerService(kontrollerAnswerDto));

@@ -11,9 +11,9 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class KontrollerDto {
+public class KontrollerPowerOnDto {
     private long id;
     private String type;
-    private String sn;
-    private List<MessagesDto> messages;
+    private Long sn;
+    private List<MessagesPowerOnDto> messages;
 }

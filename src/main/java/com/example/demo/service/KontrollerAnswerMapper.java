@@ -12,7 +12,7 @@ public class KontrollerAnswerMapper {
 
     public static KontrollerAnswerDto KontrollerAnswertoDto(KontrollerAnswerEntity kontrollerAnswerEntity) {
         KontrollerAnswerDto kontrollerAnswerDto = new KontrollerAnswerDto();
-        kontrollerAnswerDto.setId(kontrollerAnswerEntity.getId());
+        kontrollerAnswerDto.setId(kontrollerAnswerEntity.getID());
         kontrollerAnswerDto.setMessages(kontrollerAnswerEntity.getMessages().stream().map(KontrollerAnswerMapper::toDto).collect(Collectors.toList()));
 
         return kontrollerAnswerDto;
@@ -20,7 +20,7 @@ public class KontrollerAnswerMapper {
 
     public static KontrollerAnswerEntity toEntity(KontrollerAnswerDto kontrollerAnswerDto) {
         KontrollerAnswerEntity kontrollerAnswerEntity = new KontrollerAnswerEntity();
-        kontrollerAnswerEntity.setId(kontrollerAnswerDto.getId());
+        kontrollerAnswerEntity.setID(kontrollerAnswerDto.getId());
         kontrollerAnswerEntity.setMessages(kontrollerAnswerDto.getMessages().stream().map(KontrollerAnswerMapper::toEntity).collect(Collectors.toList()));
         return kontrollerAnswerEntity;
     }

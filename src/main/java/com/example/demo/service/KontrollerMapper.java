@@ -2,10 +2,10 @@ package com.example.demo.service;
 
 import java.util.stream.Collectors;
 
-import com.example.demo.DTO.EventsDto;
+// import com.example.demo.DTO.EventsDto;
 import com.example.demo.DTO.KontrollerDto;
 import com.example.demo.DTO.MessagesDto;
-import com.example.demo.Entity.EventsEntity;
+// import com.example.demo.Entity.EventsEntity;
 import com.example.demo.Entity.KontrollerEntity;
 import com.example.demo.Entity.MessagesEntity;
 
@@ -39,7 +39,7 @@ public class KontrollerMapper {
         messagesDto.setController_ip(messagesEntity.getController_ip());
         messagesDto.setFw(messagesEntity.getFw());
         messagesDto.setReader_protocol(messagesEntity.getReader_protocol());
-        messagesDto.setEvents(messagesEntity.getEvents().stream().map(KontrollerMapper::toDto).collect(Collectors.toList()));
+        // messagesDto.setEvents(messagesEntity.getEvents().stream().map(KontrollerMapper::toDto).collect(Collectors.toList()));
         return messagesDto;
     }
 
@@ -52,29 +52,29 @@ public class KontrollerMapper {
         messagesEntity.setController_ip(messagesDto.getController_ip());
         messagesEntity.setFw(messagesDto.getFw());
         messagesEntity.setReader_protocol(messagesDto.getReader_protocol());
-        messagesEntity.setEvents(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
+        // messagesEntity.setEvents(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
         return messagesEntity;
     }
 
-    public static EventsDto toDto(EventsEntity eventsEntity) {
-        EventsDto eventsDto = new EventsDto();
-        eventsDto.setId(eventsEntity.getId());
-        eventsDto.setFlag(eventsEntity.getFlag());
-        eventsDto.setEvent(eventsEntity.getEvent());
-        eventsDto.setTime(eventsEntity.getTime());
-        eventsDto.setCard(eventsEntity.getCard());
-        return eventsDto;
-    }
+    // public static EventsDto toDto(EventsEntity eventsEntity) {
+    //     EventsDto eventsDto = new EventsDto();
+    //     eventsDto.setId(eventsEntity.getId());
+    //     eventsDto.setFlag(eventsEntity.getFlag());
+    //     eventsDto.setEvent(eventsEntity.getEvent());
+    //     eventsDto.setTime(eventsEntity.getTime());
+    //     eventsDto.setCard(eventsEntity.getCard());
+    //     return eventsDto;
+    // }
 
-    public static EventsEntity toEntity(EventsDto eventsDto) {
-        EventsEntity eventsEntity = new EventsEntity();
-        eventsEntity.setId(eventsDto.getId());
-        eventsEntity.setFlag(eventsDto.getFlag());
-        eventsEntity.setEvent(eventsDto.getEvent());
-        eventsEntity.setTime(eventsDto.getTime());
-        eventsEntity.setCard(eventsDto.getCard());
-        // eventsEntity.setMessages(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
-        return eventsEntity;
-    }
+    // public static EventsEntity toEntity(EventsDto eventsDto) {
+    //     EventsEntity eventsEntity = new EventsEntity();
+    //     eventsEntity.setId(eventsDto.getId());
+    //     eventsEntity.setFlag(eventsDto.getFlag());
+    //     eventsEntity.setEvent(eventsDto.getEvent());
+    //     eventsEntity.setTime(eventsDto.getTime());
+    //     eventsEntity.setCard(eventsDto.getCard());
+    //     // eventsEntity.setMessages(messagesDto.getEvents().stream().map(KontrollerMapper::toEntity).collect(Collectors.toList()));
+    //     return eventsEntity;
+    // }
 
 }

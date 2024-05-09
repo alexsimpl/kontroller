@@ -26,8 +26,8 @@ public class KontrollerEntity {
     @Column(name = "sn")
     private String sn;
 
-    @Column(name = "date")
-    private String date;
+    // @Column(name = "date")
+    // private String date;
 
     @Column(name = "interval")
     private int interval;
@@ -35,9 +35,5 @@ public class KontrollerEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "kontroller")
     @Column(name = "messagesKontroller_id")
     private List<MessagesEntity> messages;
-    
-    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "eventsKontroller")
-    // @Column(name = "eventsKontroller_id")
-    // private List<EventsEntity> events;
 
 }

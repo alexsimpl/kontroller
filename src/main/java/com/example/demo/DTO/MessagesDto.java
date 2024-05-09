@@ -1,6 +1,6 @@
 package com.example.demo.DTO;
 
-import java.util.List;
+// import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,6 +21,6 @@ public class MessagesDto {
     private int mode;
     private String controller_ip;
     private String reader_protocol;
-    private List<EventsDto> events;
+    // private List<EventsDto> events;
     
 }

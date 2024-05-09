@@ -89,6 +89,7 @@ public class KontrollerService {
                 kontrollerAnswerPowerOnEntity.getMessages().get(0).setController_ip(null);
                 kontrollerAnswerPowerOnEntity.getMessages().get(0).setReader_protocol(null);
                 kontrollerAnswerPowerOnEntity.getMessages().get(0).setOnline(0);
+                
                 return kontrollerAnswerPowerOnEntity;
                
             case "ping":

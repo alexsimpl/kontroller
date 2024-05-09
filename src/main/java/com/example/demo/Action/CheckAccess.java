@@ -1,4 +1,4 @@
-package com.example.demo.Varible;
+package com.example.demo.Action;
 
 public class CheckAccess {
     public long id;

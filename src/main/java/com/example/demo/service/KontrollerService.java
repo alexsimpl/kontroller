@@ -42,6 +42,22 @@ public class KontrollerService {
         }
     }
 
+    //get One kontroller by id
+    public KontrollerEntity getOneKontrollerService(Long id) {
+	    KontrollerEntity kontrollerEntity = kontrollerRepository.findById(id).get();
+        return kontrollerEntity;
+    }
+
+    // public List<KontrollerEntity> getAllKontrollers() {
+    //     return kontrollerRepository.findAll();
+    // }
+
+    //get All kontrollers
+    public List<KontrollerEntity> getAllKontrollerService() {
+	    List<KontrollerEntity> kontrollerEntity = kontrollerRepository.findAll();
+        return kontrollerEntity;
+    }
+
     //response to kontroller 
     public KontrollerAnswerEntity responseToKontrollerService(KontrollerAnswerDto kontrollerAnswerDto) {
         //selecting an answer depending on the value "operation"
@@ -183,22 +199,6 @@ public class KontrollerService {
         } else {
             return kontrollerAnswerEntity;
         }
-    }
-
-    //get One kontroller by id
-    public KontrollerEntity getOneKontrollerService(Long id) {
-	    KontrollerEntity kontrollerEntity = kontrollerRepository.findById(id).get();
-        return kontrollerEntity;
-    }
-
-    public List<KontrollerEntity> getAllKontrollers() {
-        return kontrollerRepository.findAll();
-    }
-
-    //get All kontrollers
-    public List<KontrollerEntity> getAllKontrollerService() {
-	    List<KontrollerEntity> kontrollerEntity = kontrollerRepository.findAll();
-        return kontrollerEntity;
     }
 
 }

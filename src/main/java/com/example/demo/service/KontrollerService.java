@@ -33,7 +33,7 @@ public class KontrollerService {
     private KontrollerAnswerRepository kontrollerAnswerRepository;
     
     //save kontroller in db
-    public void createKontrollerService(KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
+    public KontrollerEntity createKontrollerService(KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
 
         if (kontrollerRepository.findBySn(kontrollerDto.getSn()) != null) {
             throw new KontrollerAlreadyExistException("Kontroller with sn this serial number already exists");
@@ -41,7 +41,7 @@ public class KontrollerService {
             KontrollerEntity kontrollerEntity = new KontrollerEntity();
             kontrollerEntity = KontrollerMapper.toEntity(kontrollerDto);
             kontrollerRepository.save(kontrollerEntity);
-            // return kontrollerEntity;
+            return kontrollerEntity;
         }
     }
 

@@ -39,9 +39,11 @@ public class KontrollerController {
 
     // create kontrollers by id rest api
     @PostMapping("/kontrollers")
-	public void createKontroller(@RequestBody KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
-        kontrollerService.createKontrollerService(kontrollerDto);
+	public Long createKontroller(@RequestBody KontrollerDto kontrollerDto) throws KontrollerAlreadyExistException{
+        // kontrollerService.createKontrollerService(kontrollerDto);
+        return kontrollerService.createKontrollerService(kontrollerDto);
 	}
+
 
     //response to kontroller
     @PostMapping("/kontroller")
